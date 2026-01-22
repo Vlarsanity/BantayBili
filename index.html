@@ -13,18 +13,145 @@
       --emerald: #059669;
       --dark-green: #064E3B;
       --light-green: #ECFDF5;
+      --accent-green: #10B981;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
+    /* HERO SECTION */
     .hero {
-      background: linear-gradient(to right, var(--emerald), var(--dark-green));
+      background: linear-gradient(135deg, var(--emerald) 0%, var(--dark-green) 100%);
       color: white;
-      padding: 100px 0;
+      padding: 80px 0 100px;
+      position: relative;
+      overflow: hidden;
     }
 
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 50 Q 25 25, 50 50 T 100 50" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .tagline {
+      font-size: 1.5rem;
+      font-weight: 600;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.8s both;
+    }
+
+    .btn-primary-custom {
+      background: white;
+      color: var(--dark-green);
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      background: #f0fdf4;
+    }
+
+    .btn-outline-custom {
+      background: transparent;
+      color: white;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: 2px solid white;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-custom:hover {
+      background: white;
+      color: var(--dark-green);
+      transform: translateY(-2px);
+    }
+
+    /* STATS SECTION */
+    .stats-section {
+      background: var(--dark-green);
+      color: white;
+      padding: 50px 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* SECTION STYLES */
     .section {
       padding: 80px 0;
     }
@@ -36,28 +163,229 @@
     .section-title {
       color: var(--dark-green);
       font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .tagline {
-      font-size: 1.2rem;
-      opacity: 0.9;
+    .section-subtitle {
+      color: var(--emerald);
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
     }
 
-    .placeholder-img {
-      background-color: #d1fae5;
-      height: 260px;
+    /* FEATURE CARDS */
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 2px solid transparent;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(5, 150, 105, 0.15);
+      border-color: var(--emerald);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--emerald), var(--accent-green));
+      border-radius: 12px;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    /* PLACEHOLDER IMAGES WITH ICONS */
+    .placeholder-img {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      height: 300px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       color: #065f46;
       font-weight: 600;
-      border-radius: 12px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
+    .placeholder-img::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      animation: shimmer 3s infinite;
+    }
+
+    .placeholder-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      z-index: 1;
+    }
+
+    .placeholder-text {
+      z-index: 1;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    /* TESTIMONIAL SECTION */
+    .testimonial {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--emerald);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--dark-green);
+    }
+
+    .testimonial-role {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* FOOTER */
     footer {
       background-color: var(--dark-green);
       color: white;
-      padding: 40px 0;
+      padding: 60px 0 30px;
+    }
+
+    .footer-logo {
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .social-icon:hover {
+      background: var(--emerald);
+      transform: translateY(-3px);
+      color: white;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shimmer {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary-custom,
+      .btn-outline-custom {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
@@ -65,15 +393,50 @@
 
 <!-- HERO SECTION -->
 <section class="hero text-center">
-  <div class="container">
-    <!-- Replace src with your BantayBili logo -->
-    <img src="logo-bantaybili.png" alt="BantayBili Logo" height="80" class="mb-4">
+  <div class="container hero-content">
+    <img src="images/Bantay Bili.png" alt="BantayBili Logo" class="hero-logo">
     <h1 class="fw-bold">BantayBili</h1>
     <p class="tagline">Puro. Lokal. Tunay.</p>
-    <p class="mt-4">
+    <p class="hero-description">
       Watch Filipino-made products live before you buy.<br>
       No imports. No scams. Just real local sellers.
     </p>
+    <div class="cta-buttons">
+      <button class="btn-primary-custom">Join as Seller</button>
+      <button class="btn-outline-custom">Start Shopping</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS SECTION -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Filipino-Made</span>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <span class="stat-number">Live</span>
+          <span class="stat-label">Video Shopping</span>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <span class="stat-number">Zero</span>
+          <span class="stat-label">Import Scams</span>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <span class="stat-number">Direct</span>
+          <span class="stat-label">From Makers</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -81,21 +444,37 @@
 <section class="section">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <p class="section-subtitle">What We Do</p>
         <h2 class="section-title">A Live Shopping Platform for Filipinos</h2>
-        <p class="mt-3">
+        <p class="mt-3" style="font-size: 1.1rem; line-height: 1.8;">
           BantayBili is an online shopping platform that uses <strong>live video selling</strong>
           to connect buyers directly with Filipino sellers.
         </p>
-        <p>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
           Every product you see is <strong>made in the Philippines</strong>.
           Imported goods are not allowed. Buyers can watch products being presented
           in real time, ask questions, and see the actual quality before purchasing.
         </p>
+        <div class="mt-4">
+          <div class="d-flex align-items-start mb-3">
+            <div style="min-width: 30px;">✓</div>
+            <div><strong>See products live</strong> - No misleading photos</div>
+          </div>
+          <div class="d-flex align-items-start mb-3">
+            <div style="min-width: 30px;">✓</div>
+            <div><strong>Ask questions instantly</strong> - Direct seller interaction</div>
+          </div>
+          <div class="d-flex align-items-start">
+            <div style="min-width: 30px;">✓</div>
+            <div><strong>Support local economy</strong> - Every purchase helps Filipino families</div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <div class="placeholder-img">
-          Live selling interface with comments & LIVE badge
+          <div class="placeholder-icon">📱</div>
+          <div class="placeholder-text">Live selling interface<br>with real-time chat & LIVE badge</div>
         </div>
       </div>
     </div>
@@ -107,30 +486,39 @@
   <div class="container">
     <div class="row">
       <div class="col text-center mb-5">
-        <h2 class="section-title">Who We Serve</h2>
+        <p class="section-subtitle">Who We Serve</p>
+        <h2 class="section-title">Supporting Both Sides of the Market</h2>
       </div>
     </div>
 
     <div class="row g-4">
-      <div class="col-md-6">
-        <h4 class="fw-bold">Local Sellers</h4>
-        <p>
-          BantayBili supports Filipino makers such as weavers, Marikina shoemakers,
-          farmers, and artists who struggle to compete with cheap imported goods.
-        </p>
-        <div class="placeholder-img">
-          Filipino artisan or farmer at work
+      <div class="col-lg-6">
+        <div class="feature-card">
+          <div class="feature-icon">🏭</div>
+          <h4 class="fw-bold mb-3">Local Sellers & Makers</h4>
+          <p style="line-height: 1.8;">
+            BantayBili supports Filipino makers such as weavers, Marikina shoemakers,
+            farmers, and artists who struggle to compete with cheap imported goods.
+          </p>
+          <div class="placeholder-img mt-4">
+            <div class="placeholder-icon">👨‍🌾</div>
+            <div class="placeholder-text">Filipino artisan or farmer at work</div>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-6">
-        <h4 class="fw-bold">Local Buyers</h4>
-        <p>
-          Our buyers are Filipinos who want to support the local economy
-          but are afraid of online scams and misleading product photos.
-        </p>
-        <div class="placeholder-img">
-          Filipino buyer watching live selling on phone
+      <div class="col-lg-6">
+        <div class="feature-card">
+          <div class="feature-icon">🛍️</div>
+          <h4 class="fw-bold mb-3">Local Buyers</h4>
+          <p style="line-height: 1.8;">
+            Our buyers are Filipinos who want to support the local economy
+            but are afraid of online scams and misleading product photos.
+          </p>
+          <div class="placeholder-img mt-4">
+            <div class="placeholder-icon">📲</div>
+            <div class="placeholder-text">Filipino buyer watching<br>live selling on phone</div>
+          </div>
         </div>
       </div>
     </div>
@@ -141,21 +529,67 @@
 <section class="section">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <p class="section-subtitle">Our Advantage</p>
         <h2 class="section-title">A Trusted Local Community</h2>
-        <p class="mt-3">
+        <p class="mt-3" style="font-size: 1.1rem; line-height: 1.8;">
           While other platforms act like global warehouses,
           BantayBili functions as a <strong>local Filipino community</strong>.
         </p>
-        <ul>
-          <li>Live selling removes guesswork and scams</li>
-          <li>Sellers show real products in real time</li>
-          <li>Workshops and farms are shown to verify authenticity</li>
-        </ul>
+        
+        <div class="mt-4">
+          <div class="feature-card mb-3">
+            <h5 class="fw-bold" style="color: var(--emerald);">🎥 Live Transparency</h5>
+            <p class="mb-0">Sellers show real products in real time, removing guesswork and preventing scams</p>
+          </div>
+          
+          <div class="feature-card mb-3">
+            <h5 class="fw-bold" style="color: var(--emerald);">🏪 Workshop Verification</h5>
+            <p class="mb-0">Workshops and farms are shown on live video to verify authenticity</p>
+          </div>
+          
+          <div class="feature-card">
+            <h5 class="fw-bold" style="color: var(--emerald);">🇵🇭 100% Local</h5>
+            <p class="mb-0">Every product is Filipino-made, supporting local artisans and economy</p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <div class="placeholder-img">
-          Seller showing workshop or farm on live video
+          <div class="placeholder-icon">🎬</div>
+          <div class="placeholder-text">Seller showing workshop or farm<br>on live video stream</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="section-subtitle">What People Say</p>
+      <h2 class="section-title">Voices from Our Community</h2>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="testimonial">
+          <p class="testimonial-text">
+            "Before BantayBili, my handwoven products were buried in marketplaces full of cheap imports. Now, customers see my craft live and appreciate the real quality."
+          </p>
+          <p class="testimonial-author mb-0">Maria Santos</p>
+          <p class="testimonial-role">Weaver from Ilocos</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-6 mb-4">
+        <div class="testimonial">
+          <p class="testimonial-text">
+            "I was tired of getting scammed by fake product photos. With BantayBili, I watch the seller show everything live. Finally, I can shop with confidence!"
+          </p>
+          <p class="testimonial-author mb-0">Juan dela Cruz</p>
+          <p class="testimonial-role">Buyer from Manila</p>
         </div>
       </div>
     </div>
@@ -163,24 +597,29 @@
 </section>
 
 <!-- GLOBAL TRADE -->
-<section class="section section-light">
+<section class="section">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <p class="section-subtitle">Our Vision</p>
         <h2 class="section-title">From Local to Global</h2>
-        <p class="mt-3">
+        <p class="mt-3" style="font-size: 1.1rem; line-height: 1.8;">
           BantayBili aims to bring Filipino craftsmanship to the world.
           Instead of buying from other countries, we want other countries
           to buy <strong>Tatak Pinoy</strong> products from us.
         </p>
-        <p>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
           Through live streams, international buyers can see, trust,
           and purchase Filipino-made products directly from local sellers.
         </p>
+        <div class="mt-4 p-4" style="background: var(--light-green); border-radius: 12px; border-left: 4px solid var(--emerald);">
+          <strong style="color: var(--dark-green);">Our Goal:</strong> Make "Made in Philippines" a global mark of quality and authenticity.
+        </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <div class="placeholder-img">
-          Filipino product with global audience
+          <div class="placeholder-icon">🌏</div>
+          <div class="placeholder-text">Filipino products reaching<br>global audience</div>
         </div>
       </div>
     </div>
@@ -188,40 +627,146 @@
 </section>
 
 <!-- FUNDING USAGE -->
-<section class="section">
+<section class="section section-light">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6">
+      <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+        <p class="section-subtitle">Investment Use</p>
         <h2 class="section-title">Making Local Products Competitive</h2>
-        <p class="mt-3">
-          Shipping between Philippine islands is expensive.
+        <p class="mt-3" style="font-size: 1.1rem; line-height: 1.8;">
+          Shipping between Philippine islands is expensive, often making local products
+          more costly than imported goods.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
           Funding support will be used to provide a <strong>shipping subsidy</strong>
-          for local sellers.
+          for local sellers, making Filipino-made products competitive on price
+          while maintaining quality and supporting small businesses nationwide.
         </p>
-        <p>
-          Lower shipping costs allow Filipino products to compete fairly
-          with imported items while supporting small businesses nationwide.
-        </p>
+        
+        <div class="mt-4">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="text-center p-3" style="background: white; border-radius: 12px;">
+                <div style="font-size: 2rem; color: var(--emerald);">💰</div>
+                <div class="fw-bold mt-2">Lower Costs</div>
+                <div class="small">For Sellers</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center p-3" style="background: white; border-radius: 12px;">
+                <div style="font-size: 2rem; color: var(--emerald);">📦</div>
+                <div class="fw-bold mt-2">Better Prices</div>
+                <div class="small">For Buyers</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center p-3" style="background: white; border-radius: 12px;">
+                <div style="font-size: 2rem; color: var(--emerald);">🚚</div>
+                <div class="fw-bold mt-2">Fast Delivery</div>
+                <div class="small">Nationwide</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center p-3" style="background: white; border-radius: 12px;">
+                <div style="font-size: 2rem; color: var(--emerald);">🇵🇭</div>
+                <div class="fw-bold mt-2">Local Growth</div>
+                <div class="small">Economy Boost</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-lg-6 order-lg-1">
         <div class="placeholder-img">
-          Packages moving between Philippine islands
+          <div class="placeholder-icon">🚢</div>
+          <div class="placeholder-text">Packages moving between<br>Philippine islands</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center">
-  <div class="container">
-    <h4 class="fw-bold">BantayBili</h4>
-    <p class="mb-3">Live. Lokal. Totoo.</p>
-    <p class="small">
-      Supporting Filipino sellers • Protecting Filipino buyers • Promoting Tatak Pinoy
+<!-- CALL TO ACTION -->
+<section class="section" style="background: linear-gradient(135deg, var(--emerald) 0%, var(--dark-green) 100%); color: white;">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4" style="font-size: 2.5rem; color: white;">Ready to Support Filipino Products?</h2>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.95;">
+      Join us in building a platform where Filipino-made products thrive and shoppers buy with confidence.
     </p>
+    <div class="cta-buttons">
+      <button class="btn-primary-custom">Become a Seller</button>
+      <button class="btn-outline-custom">Shop Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 mb-4">
+        <h4 class="fw-bold mb-3">BantayBili</h4>
+        <p class="mb-3">Live. Lokal. Totoo.</p>
+        <p>
+          Supporting Filipino sellers • Protecting Filipino buyers • Promoting Tatak Pinoy
+        </p>
+        <div class="social-icons">
+          <a href="#" class="social-icon">f</a>
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">ig</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-6">
+        <h5 class="fw-bold mb-3">Platform</h5>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#sellers">For Sellers</a></li>
+          <li><a href="#buyers">For Buyers</a></li>
+          <li><a href="#how">How It Works</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-2 col-6">
+        <h5 class="fw-bold mb-3">Support</h5>
+        <ul class="footer-links">
+          <li><a href="#help">Help Center</a></li>
+          <li><a href="#shipping">Shipping Info</a></li>
+          <li><a href="#returns">Returns</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-2 col-6">
+        <h5 class="fw-bold mb-3">Legal</h5>
+        <ul class="footer-links">
+          <li><a href="#terms">Terms of Service</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#guidelines">Seller Guidelines</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-2 col-6">
+        <h5 class="fw-bold mb-3">Connect</h5>
+        <ul class="footer-links">
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#stories">Success Stories</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <hr style="border-color: rgba(255,255,255,0.2); margin: 2rem 0;">
+    
+    <div class="text-center">
+      <p class="small mb-0" style="opacity: 0.8;">
+        © 2026 BantayBili. All rights reserved. Made with ❤️ in the Philippines
+      </p>
+    </div>
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
