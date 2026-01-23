@@ -20,7 +20,7 @@ body {
 .hero {
   background: linear-gradient(135deg, var(--emerald) 0%, var(--dark-green) 100%);
   color: white;
-  padding: 80px 0 100px;
+  padding: 0 0 100px;
   position: relative;
   overflow: hidden;
 }
@@ -43,7 +43,7 @@ body {
 
 .hero-logo {
   max-width: 300px;
-  height: auto;
+  height: auto; /*190px;*/
   margin-bottom: 2rem;
   filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
   animation: fadeInDown 1s ease-out;
