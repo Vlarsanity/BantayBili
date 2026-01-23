@@ -305,6 +305,11 @@
 </head>
 <body>
 
+  <!-- Back Button -->
+  <div class="back-button-container">
+    <button class="back-button" onclick="window.location.href='index.html'">← Back</button>
+  </div>
+
   <div class="phone-frame">
     <!-- Video Area -->
     <div class="video-area">
@@ -366,6 +371,26 @@
       </div>
     </div>
   </div>
+
+  <style>
+    .back-button-container {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .back-button {
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px 12px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .back-button:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
 
 </body>
 </html>
